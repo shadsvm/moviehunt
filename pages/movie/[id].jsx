@@ -1,9 +1,10 @@
-import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import LikeButton from "../../components/LikeButton"
 import Loading from "../../components/Loading"
-import { MdOutlineImageNotSupported } from 'react-icons/md'
-import { IoTrophyOutline } from 'react-icons/io5'
 import Rating from "../../components/Rating"
+import { IoTrophyOutline } from 'react-icons/io5'
+import { BsDot } from 'react-icons/bs'
 
 const MPARating = (rating) => {
   switch (rating) {
@@ -47,7 +48,7 @@ export default function Movie() {
       
       <header className="flex flex-col">
         <h1 className="text-3xl font-semibold tracking-wide">{data.Title}</h1>
-        <div>{data.Year} • {data.Runtime} • <span className={MPARating(data.Rated)}>{data.Rated}</span></div>
+        <div className="flex items-center">{data.Year} <BsDot/> {data.Runtime} <BsDot/> <span className={MPARating(data.Rated)}>{data.Rated}</span></div>
       </header>
       
       <section className="grid grid-cols-3 gap-6">
@@ -60,6 +61,7 @@ export default function Movie() {
           <div className="mt-2"><span className="text-neutral-500">Genre</span>    {data.Genre}</div>
           <div><span className="text-neutral-500">Released</span> {data.Released}</div>
           <div><span className="text-neutral-500">Language</span> {data.Language}</div>
+          <LikeButton id={data.imdbID} />
         </div>
       </section>
 
