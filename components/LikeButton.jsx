@@ -5,7 +5,7 @@ import { useFavourite } from '../contexts/Favourite'
 export default function LikeButton({id}) {
 
   const {favourite, setFavourite} = useFavourite()
-  const isActive = useMemo(() => favourite.includes(id), [favourite])
+  const isActive = useMemo(() => favourite.includes(id), [favourite, id])
   const activeClass = isActive ? 'bg-orange-600 border-orange-600 text-white ' : 'hover:border-orange-600 hover:text-orange-600'
 
   const handleLike = () => {

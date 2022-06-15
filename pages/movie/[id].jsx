@@ -31,14 +31,13 @@ export default function Movie() {
     fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
       .then(res => res.json())
       .then(content => {
-        console.log(content);
         if(content.Response == "False") throw Error(content.Error)
         setData(content)
         setLoading(false)
       })
       .catch(() => router.push('/error'))
       
-  }, [id])
+  }, [id, router])
   
   
   if(loading) return <Loading />

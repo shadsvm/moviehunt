@@ -16,7 +16,6 @@ export default function Favourite() {
     if (!favourite) return
     setLoading(true)
     for (let id of favourite){
-      // console.log('fetching:', id);
       fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
         .then(res => res.json())
         .then(content => {
@@ -34,7 +33,7 @@ export default function Favourite() {
     }
     setLoading(false)
       
-  }, [favourite])
+  }, [favourite, router])
   
   
   if(loading) return <Loading />

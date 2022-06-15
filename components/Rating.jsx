@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const SourceToImage = (source) => {
   switch (source) {
     case "Internet Movie Database": return '/imdb.png'
@@ -8,9 +10,11 @@ const SourceToImage = (source) => {
 
 export default function Rating({Source, Value}) {
   return (
-    <div className="flex flex-row items-center gap-5">
-      <img src={SourceToImage(Source)} alt="imdb" className="h-8" /> 
-      {Value}
+    <div className="flex flex-row items-center justify-center gap-3 ">
+      <div className="w-24 h-8 relative">
+        <Image layout="fill" objectFit="contain" src={SourceToImage(Source)} alt="imdb" /> 
+      </div>
+      <div className="flex-1">{Value}</div>
     </div>
   )
 }
