@@ -21,7 +21,7 @@ export default function Search() {
         setData(data.Search)
         setLoading(false)
       })
-      .catch(() => router.push('/error'))
+      .catch((e) => console.error(e))
   }, [query])
 
   if(loading) return <Loading />

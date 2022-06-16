@@ -35,9 +35,9 @@ export default function Movie() {
         setData(content)
         setLoading(false)
       })
-      .catch(() => router.push('/error'))
+      .catch((e) => console.error(e))
       
-  }, [id, router])
+  }, [id])
   
   
   if(loading) return <Loading />
