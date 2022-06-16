@@ -16,7 +16,7 @@ export default function Favourite() {
     if (!favourite) return
     setLoading(true)
     for (let id of favourite){
-      fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
+      fetch(`https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
         .then(res => res.json())
         .then(content => {
           let movieData = {
@@ -38,5 +38,5 @@ export default function Favourite() {
   
   if(loading) return <Loading />
 
-  return <MovieMap data={data} />
+  return favourite.length > 0 ? <MovieMap data={data} /> : <div className="h-full flex justify-center items-center text-xl">You have not liked anything.</div>
 }
