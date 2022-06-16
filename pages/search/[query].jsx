@@ -15,7 +15,7 @@ export default function Search() {
   useEffect(() => {
     if(!query) return
     setLoading(true)
-    fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&s=${query.replace('+', ' ')}`)
+    fetch(`https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&s=${query.replace('+', ' ')}`)
       .then(res => res.json())
       .then(data => {
         setData(data.Search)

@@ -28,7 +28,7 @@ export default function Movie() {
   useEffect(() => {
     if(!id) return
     setLoading(true)
-    fetch(`http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
+    fetch(`https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&i=${id}`)
       .then(res => res.json())
       .then(content => {
         if(content.Response == "False") throw Error(content.Error)
